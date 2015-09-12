@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Invoice</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.descripcion %></td>
+        <td><%= item.precio %></td>
+        <td><%= item.cantidad %></td>
+        <td><%= link_to 'Edit', edit_invoice_item_path(@invoice,item) %></td>
+        <td><%= link_to 'Destroy', invoice_items_path(@invoice,item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
